@@ -6,7 +6,7 @@ jobs:
   commit-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Run commit msg check
       uses: commit-check/commit-check-action@v0.9.2
