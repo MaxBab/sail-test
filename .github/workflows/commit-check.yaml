@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Run commit msg check
+      env:
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
       uses: commit-check/commit-check-action@v0.9.2
       with:
         message: true
