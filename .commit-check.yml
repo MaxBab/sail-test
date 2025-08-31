@@ -1,0 +1,9 @@
+# More config examples could be found here - https://github.com/commit-check/commit-check/blob/main/.commit-check.yml
+checks:
+  - check: message
+    regex: '^([^\n]+)\n\n([\s\S]+)\n\n(Signed-off-by: .*)$'
+    error: "The commit message should be structured as follows:\n\n
+    <commit header>\n\n
+    <commit body>\n\n
+    <commiter sign-off>"
+    suggest: Please check your commit message whether matches above regex
