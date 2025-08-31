@@ -15,9 +15,9 @@ jobs:
       with:
         message: true
         branch: false
-        author-name: true
-        author-email: true
-        commit-signoff: true
+        author-name: false
+        author-email: false
+        commit-signoff: false
         merge-base: false
         imperative: false
         job-summary: true
