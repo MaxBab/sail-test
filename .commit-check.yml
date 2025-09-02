@@ -6,3 +6,8 @@ checks:
     <commit header>\n\n
     <commit body>"
     suggest: Please check your commit message whether matches above regex
+
+  - check: commit_signoff
+    regex: Signed-off-by:.*[A-Za-z0-9]\s+<.+@.+>
+    error: Signed-off-by not found in latest commit
+    suggest: run command `git commit -m "conventional commit message" --signoff`

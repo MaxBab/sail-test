@@ -17,10 +17,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # use GITHUB_TOKEN because use of pr-comments
         with:
           message: true
-          branch: false
           author-name: true
           author-email: true
           commit-signoff: true
+          job-summary: true
+          branch: false
           merge-base: false
           imperative: false
-          job-summary: true
