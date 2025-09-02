@@ -1,13 +1,35 @@
 name: Validate commit messages
 
+name: CI
+
 on: [pull_request]
 
+permissions:
+  contents: read
+
 jobs:
-  commit-check:
+  commitlint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Run commitlint
-      run: |
-        npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }}
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install commitlint
+        run: npm install -D @commitlint/cli @commitlint/config-conventional
+      - name: Print versions
+        run: |
+          git --version
+          node --version
+          npm --version
+          npx commitlint --version
+
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
