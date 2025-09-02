@@ -1,0 +1,27 @@
+extends:
+  - "@commitlint/config-conventional"
+
+rules:
+  # Rule 1: Header line is required (implicit by default in commitlint)
+  header-max-length:
+    - 2        # severity (0=disable, 1=warn, 2=error)
+    - always
+    - 72       # max length of header (common convention)
+
+  # Rule 2: Body must not be empty
+  body-empty:
+    - 2
+    - never
+
+  # Require blank line before footer (good convention practice)
+  footer-leading-blank:
+    - 2
+    - always
+
+  # Rule 3: Footer (signoff) must exist
+  footer-empty:
+    - 2
+    - never
+
+plugins:
+  - commitlint-plugin-signed-off-by
