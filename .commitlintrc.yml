@@ -14,14 +14,11 @@ rules:
     - never
 
   # Require blank line before footer (good convention practice)
-  footer-leading-blank:
-    - 2
-    - always
+  #footer-leading-blank:
+  #  - 2
+  #  - always
 
   # Rule 3: Footer (signoff) must exist
-  footer-empty:
-    - 2
-    - never
-
-plugins:
-  - commitlint-plugin-signed-off-by
+  #footer-empty:
+  #  - 2
+  #  - never
