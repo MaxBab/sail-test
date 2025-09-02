@@ -20,7 +20,7 @@ jobs:
           branch: false
           author-name: true
           author-email: true
-          commit-signoff: false
+          commit-signoff: true
           merge-base: false
           imperative: false
           job-summary: true
