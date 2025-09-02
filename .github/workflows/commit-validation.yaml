@@ -3,14 +3,24 @@ name: Validate commit messages
 on: [pull_request]
 
 jobs:
-  commitlint:
+  commit-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Validate PR commit with commitlint
-        uses: wagoid/commitlint-github-action@v6
+      - name: Validate PR commit
+        uses: commit-check/commit-check-action@v0.9.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # use GITHUB_TOKEN because use of pr-comments
         with:
-          configFile: .commitlintrc.yml
+          message: true
+          branch: false
+          author-name: true
+          author-email: true
+          commit-signoff: false
+          merge-base: false
+          imperative: false
+          job-summary: true
