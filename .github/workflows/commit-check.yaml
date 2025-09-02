@@ -1,7 +1,5 @@
 name: Validate commit messages
 
-name: CI
-
 on: [pull_request]
 
 permissions:
